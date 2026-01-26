@@ -38,7 +38,6 @@ bool UserManager::registerAccount(const std::string& username, const std::string
     return true;
 }
 
-// Use Case: Login
 User* UserManager::login(const std::string& username, const std::string& password) {
     User* u = findUserInternal(username);
     if (!u) return nullptr;
@@ -46,7 +45,6 @@ User* UserManager::login(const std::string& username, const std::string& passwor
     return u;
 }
 
-// Use Case: Reset Password
 bool UserManager::resetPassword(const std::string& username, const std::string& newPassword) {
     User* u = findUserInternal(username);
     if (!u) return false;
@@ -54,7 +52,6 @@ bool UserManager::resetPassword(const std::string& username, const std::string& 
     return true;
 }
 
-// Admin: Manage User
 void UserManager::listUsers() const {
     std::cout << "\n=== DANH SACH USER ===\n";
     if (users.empty()) {
@@ -76,3 +73,20 @@ bool UserManager::deleteUser(const std::string& username) {
     users.erase(it, users.end());
     return true;
 }
+
+bool UserManager::adminAddUser(const std::string& username, const std::string& password, Role role) {
+    return registerAccount(username, password, role);
+}
+
+bool UserManager::adminUpdateUserRole(const std::string& username, Role newRole) {
+    User* u = findUserInternal(username);
+    if (!u) return false;
+    if (username == "admin") return false;
+
+    return false;
+}
+
+bool UserManager::adminUpdateUserPassword(const std::string& username, const std::string& newPassword) {
+    return resetPassword(username, newPassword);
+}
+

@@ -21,4 +21,9 @@ public:
     bool deleteUser(const std::string& username);
 
     bool usernameExists(const std::string& username);
+
+    bool adminAddUser(const std::string& username, const std::string& password, Role role);
+    bool adminUpdateUserRole(const std::string& username, Role newRole);
+    bool adminUpdateUserPassword(const std::string& username, const std::string& newPassword);
+
 };
