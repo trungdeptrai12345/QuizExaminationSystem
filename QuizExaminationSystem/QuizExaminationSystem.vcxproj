@@ -125,11 +125,16 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="main_QuizManager.cpp" />
+    <ClCompile Include="Quiz.cpp" />
+    <ClCompile Include="QuizManager.cpp" />
     <ClCompile Include="User.cpp" />
     <ClCompile Include="UserManager.cpp" />
     <ClCompile Include="Utils.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Quiz.h" />
+    <ClInclude Include="QuizManager.h" />
     <ClInclude Include="User.h" />
     <ClInclude Include="UserManager.h" />
     <ClInclude Include="Utils.h" />
