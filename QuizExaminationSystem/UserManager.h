@@ -1,5 +1,4 @@
 ﻿#pragma once
-#pragma once
 #include <vector>
 #include <memory>
 #include "User.h"
@@ -7,23 +6,16 @@
 class UserManager {
 private:
     std::vector<std::unique_ptr<User>> users;
-
-    User* findUserInternal(const std::string& username);
+    User* findUser(const std::string& username);
 
 public:
     UserManager();
 
-    bool registerAccount(const std::string& username, const std::string& password, Role role);
-    User* login(const std::string& username, const std::string& password);
-    bool resetPassword(const std::string& username, const std::string& newPassword);
+    bool registerAccount(const std::string& u, const std::string& p, Role r);
+    User* login(const std::string& u, const std::string& p);
+    bool resetPassword(const std::string& u, const std::string& newP);
 
-    void listUsers() const;
-    bool deleteUser(const std::string& username);
-
-    bool usernameExists(const std::string& username);
-
-    bool adminAddUser(const std::string& username, const std::string& password, Role role);
-    bool adminUpdateUserRole(const std::string& username, Role newRole);
-    bool adminUpdateUserPassword(const std::string& username, const std::string& newPassword);
-
+    //Admin
+    void viewUsers() const;
+    bool deleteUser(const std::string& u);
 };

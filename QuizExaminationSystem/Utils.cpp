@@ -1,39 +1,32 @@
 ﻿#include "Utils.h"
 #include <iostream>
-#include <limits>
-#include <sstream>
 #include <functional>
+#include <limits>
 
 std::string Utils::hashPassword(const std::string& input) {
-    // Demo hash (KHÔNG phải crypto real), nhưng đủ để minh hoạ NFR security trong SRS
-    // Nếu GV yêu cầu mạnh hơn, có thể thay bằng SHA256 (thư viện ngoài) -> thường không cần.
     std::hash<std::string> h;
-    size_t val = h(input);
-    std::ostringstream oss;
-    oss << val;
-    return oss.str();
+    return std::to_string(h(input));
 }
 
-int Utils::readInt(const std::string& prompt, int minVal, int maxVal) {
+int Utils::readInt(const std::string& msg, int min, int max) {
+    int x;
     while (true) {
-        std::cout << prompt;
-        int x;
-        if (std::cin >> x && x >= minVal && x <= maxVal) {
+        std::cout << msg;
+        if (std::cin >> x && x >= min && x <= max) {
             std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
             return x;
         }
-        std::cout << "Nhap khong hop le. Vui long thu lai!\n";
         std::cin.clear();
         std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+        std::cout << "Nhap sai, thu lai!\n";
     }
 }
 
-std::string Utils::readNonEmpty(const std::string& prompt) {
-    while (true) {
-        std::cout << prompt;
-        std::string s;
+std::string Utils::readString(const std::string& msg) {
+    std::string s;
+    do {
+        std::cout << msg;
         std::getline(std::cin, s);
-        if (!s.empty()) return s;
-        std::cout << "Khong duoc de trong. Vui long nhap lai!\n";
-    }
+    } while (s.empty());
+    return s;
 }

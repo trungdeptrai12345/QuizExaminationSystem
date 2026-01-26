@@ -1,44 +1,35 @@
 #include "User.h"
 #include "Utils.h"
 
-User::User(std::string uname, std::string pwHash, Role r)
-    : username(std::move(uname)), passwordHash(std::move(pwHash)), role(r) {
+User::User(std::string u, std::string p, Role r)
+    : username(u), passwordHash(p), role(r) {
 }
 
 std::string User::getUsername() const { return username; }
 Role User::getRole() const { return role; }
 
-bool User::verifyPassword(const std::string& plainPassword) const {
-    return passwordHash == Utils::hashPassword(plainPassword);
+bool User::checkPassword(const std::string& plain) const {
+    return passwordHash == Utils::hashPassword(plain);
 }
 
-void User::setPassword(const std::string& newPlainPassword) {
-    passwordHash = Utils::hashPassword(newPlainPassword);
+void User::setPassword(const std::string& newPlain) {
+    passwordHash = Utils::hashPassword(newPlain);
 }
 
-std::string User::roleName() const {
-    switch (role) {
-    case Role::Admin: return "Admin";
-    case Role::Teacher: return "Teacher";
-    case Role::Student: return "Student";
-    default: return "Unknown";
-    }
+std::string User::getRoleName() const {
+    if (role == Role::Admin) return "Admin";
+    if (role == Role::Teacher) return "Teacher";
+    return "Student";
 }
 
-Admin::Admin(std::string uname, std::string pwHash)
-    : User(std::move(uname), std::move(pwHash), Role::Admin) {
+Admin::Admin(std::string u, std::string p)
+    : User(u, p, Role::Admin) {
 }
 
-std::string Admin::roleName() const { return "Admin"; }
-
-Teacher::Teacher(std::string uname, std::string pwHash)
-    : User(std::move(uname), std::move(pwHash), Role::Teacher) {
+Teacher::Teacher(std::string u, std::string p)
+    : User(u, p, Role::Teacher) {
 }
 
-std::string Teacher::roleName() const { return "Teacher"; }
-
-Student::Student(std::string uname, std::string pwHash)
-    : User(std::move(uname), std::move(pwHash), Role::Student) {
+Student::Student(std::string u, std::string p)
+    : User(u, p, Role::Student) {
 }
-
-std::string Student::roleName() const { return "Student"; }
