@@ -130,6 +130,7 @@
     <ClCompile Include="Question.cpp" />
     <ClCompile Include="Quiz.cpp" />
     <ClCompile Include="QuizManager.cpp" />
+    <ClCompile Include="ReviewSystem.cpp" />
     <ClCompile Include="User.cpp" />
     <ClCompile Include="UserManager.cpp" />
     <ClCompile Include="Utils.cpp" />
@@ -140,6 +141,8 @@
     <ClInclude Include="Question.h" />
     <ClInclude Include="Quiz.h" />
     <ClInclude Include="QuizManager.h" />
+    <ClInclude Include="ResultData.h" />
+    <ClInclude Include="ReviewSystem.h" />
     <ClInclude Include="User.h" />
     <ClInclude Include="UserManager.h" />
     <ClInclude Include="Utils.h" />

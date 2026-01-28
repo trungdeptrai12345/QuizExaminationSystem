@@ -1,14 +1,17 @@
 #pragma once
 #include <string>
-using namespace std;
+
 class Answer {
 private:
-    string content;
-    bool isCorrect;
+    int id;
+    std::string text;
+    bool correct;
 
 public:
-    Answer(const string& content = "", bool correct = false);
+    Answer(int id = 0, const std::string& t = "", bool c = false);
 
-    string getContent() const;
-    bool getIsCorrect() const;
+    int getId() const;
+    std::string getText() const;
+    bool isCorrect() const;
+    void setCorrect(bool c);
 };

@@ -1,11 +1,4 @@
-﻿  Answer.cpp
-  ExamHandler.cpp
-  main.cpp
-  Question.cpp
-  Quiz.cpp
-  QuizManager.cpp
-  User.cpp
+﻿  main.cpp
   UserManager.cpp
-  Utils.cpp
   Generating Code...
   QuizExaminationSystem.vcxproj -> D:\Gitcode\QuizExaminationSystem\x64\Debug\QuizExaminationSystem.exe

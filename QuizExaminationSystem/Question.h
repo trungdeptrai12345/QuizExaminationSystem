@@ -3,16 +3,21 @@
 #include <vector>
 #include "Answer.h"
 
-using namespace std;
 class Question {
 private:
-    string content;
-    vector<Answer> answers;
+    int id;
+    std::string text;
+    std::vector<Answer> answers;
+
+    int findAnswerIndex(int aid) const;
 
 public:
-    Question(const string& content = "");
+    Question(int id = 0, const std::string& t = "");
 
-    void addAnswer(const Answer& ans);
-    string getContent() const;
-    const vector<Answer>& getAnswers() const;
+    int getId() const;
+    std::string getText() const;
+
+    void addAnswer(const Answer& a);
+    void markCorrectAnswer(int aid);
+    const std::vector<Answer>& getAnswers() const;
 };

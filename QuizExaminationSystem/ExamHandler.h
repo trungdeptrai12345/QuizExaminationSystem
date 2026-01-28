@@ -1,7 +1,14 @@
 #pragma once
-#include "Quiz.h"
+#include "QuizManager.h"
+#include "ResultData.h"
 
+/*
+ExamHandler
+Take Quiz
+Submit Quiz
+Auto Grading
+*/
 class ExamHandler {
 public:
-    int takeQuiz(const Quiz& quiz);
+    ExamResult takeQuiz(const Quiz& quiz, const std::string& studentName);
 };

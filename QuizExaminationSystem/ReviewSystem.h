@@ -1,14 +1,19 @@
 #pragma once
-#include "ResultData.h"
-#include "Quiz.h"
 #include <vector>
+#include "ResultData.h"
 
+/*
+ReviewSystem
+View Result
+Review Answer
+Teacher View Student Result
+*/
 class ReviewSystem {
 private:
-    vector<ExamResult> database;
+    std::vector<ExamResult> results;
 
 public:
-    void startExam(const Quiz& quiz, string studentName);
-    void reviewLastExam();
-    void showStatistics();
+    void saveResult(const ExamResult& r);
+    void reviewLastResult() const;
+    void viewAllResults() const;
 };

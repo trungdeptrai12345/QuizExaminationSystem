@@ -1,26 +1,34 @@
-#pragma once
+﻿#pragma once
 #include <string>
 #include <vector>
 #include "Question.h"
 
-using namespace std;
 class Quiz {
 private:
-    int quizID;
+    int id;
     std::string title;
-    int timeLimit; // minutes
+    int timeLimit;  
+    double scorePerQuestion;
     bool published;
     std::vector<Question> questions;
 
+    int findQuestionIndex(int qid) const;
+
 public:
-    Quiz(int id = 0, const std::string& title = "", int timeLimit = 0);
+    Quiz(int id = 0, const std::string& t = "");
+
+    int getId() const;
+    std::string getTitle() const;
+    bool isPublished() const;
+    int getTimeLimit() const;
+    double getScorePerQuestion() const;
+    const std::vector<Question>& getQuestions() const;
 
     void addQuestion(const Question& q);
-    void publish();
+    void addAnswerToQuestion(int qid, const Answer& a);
+    void markCorrectAnswer(int qid, int aid);
 
-    int getID() const;
-    string getTitle() const;
-    int getTimeLimit() const;
-    bool isPublished() const;
-    const std::vector<Question>& getQuestions() const;
+    void setTimeLimit(int minutes);
+    void setScorePerQuestion(double s);
+    void publish();
 };

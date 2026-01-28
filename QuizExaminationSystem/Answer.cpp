@@ -1,13 +1,11 @@
 #include "Answer.h"
+using namespace std;
 
-Answer::Answer(const string& content, bool correct)
-    : content(content), isCorrect(correct) {
+Answer::Answer(int id, const string& t, bool c)
+    : id(id), text(t), correct(c) {
 }
 
-string Answer::getContent() const {
-    return content;
-}
-
-bool Answer::getIsCorrect() const {
-    return isCorrect;
-}
+int Answer::getId() const { return id; }
+string Answer::getText() const { return text; }
+bool Answer::isCorrect() const { return correct; }
+void Answer::setCorrect(bool c) { correct = c; }

@@ -1,25 +1,22 @@
 #pragma once
 #include <string>
 #include <vector>
-#include <iostream>
+
 using namespace std;
 
 struct QuestionLog {
     string questionText;
-    string userChoice;
+    string chosenAnswer;
     string correctAnswer;
     bool isCorrect;
 };
 
 struct ExamResult {
     string studentName;
+    int quizId;
     string quizTitle;
-    int score;
-    int total;
-    vector<QuestionLog> history;
-
-    void printLine() {
-        cout << "SV: " << studentName << " | De: " << quizTitle
-            << " | Diem: " << score << "/" << total << endl;
-    }
+    int totalQuestions;
+    int correctCount;
+    double score;
+    vector<QuestionLog> logs;
 };

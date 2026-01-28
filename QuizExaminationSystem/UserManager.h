@@ -1,12 +1,18 @@
 ﻿#pragma once
 #include <vector>
-#include <memory>
 #include "User.h"
 
+/*
+UserManager
+Register Account
+Login
+Reset Password
+Manage User (Admin)
+*/
 class UserManager {
 private:
-    std::vector<std::unique_ptr<User>> users;
-    User* findUser(const std::string& username);
+    std::vector<User> users;
+    int findUserIndex(const std::string& username) const;
 
 public:
     UserManager();
@@ -15,7 +21,7 @@ public:
     User* login(const std::string& u, const std::string& p);
     bool resetPassword(const std::string& u, const std::string& newP);
 
-    //Admin
     void viewUsers() const;
     bool deleteUser(const std::string& u);
+    bool updateUserRole(const std::string& u, Role newRole);
 };
