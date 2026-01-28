@@ -1,7 +1,10 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\ExamHandler",
+    "\\Quiz Manager",
+    "\\QuizExaminationSystem"
   ],
-  "SelectedNode": "\\QuizExaminationSystem.sln",
+  "SelectedNode": "\\QuizExaminationSystem\\main_QuizManager.cpp",
   "PreviewInSolutionExplorer": false
 }
