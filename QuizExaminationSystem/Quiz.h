@@ -1,31 +1,26 @@
 #pragma once
-#include <String>
-using namespace std;
-/*
-Class: Quiz
-Used to: 
- - Represent a quiz object in the system.
- - Store all basic information related to a quiz.
- - Provide methods to update and configure quiz settings
-*/
+#include <string>
+#include <vector>
+#include "Question.h"
 
-class Quiz
-{
+using namespace std;
+class Quiz {
 private:
-	int quizID; // Unique ID of quiz
-	string title; // Quiz title
-	string description; // Quiz description
-	int timeLimit; // Time limit (minutes)
-	bool isPublished; // Quiz status (published / unpublished)
-	double scorePerQuestion; //Score for each correct question
+    int quizID;
+    std::string title;
+    int timeLimit; // minutes
+    bool published;
+    std::vector<Question> questions;
 
 public:
-	Quiz(int id, string t, string d); // Initialize a new quiz with default values
-	void updateQuiz(string t, string d); // Upadate basic quiz information
-	void publishQuiz(); // Publish the quiz
-	void setTimeLimit(int minutes); //Set time limit for the quiz
-	void setScoringRules(double score); //Set scoring rules for the quiz
-	void display() const; // Display quiz information
-	int getQuizID() const;
-	bool getStatus() const;
+    Quiz(int id = 0, const std::string& title = "", int timeLimit = 0);
+
+    void addQuestion(const Question& q);
+    void publish();
+
+    int getID() const;
+    string getTitle() const;
+    int getTimeLimit() const;
+    bool isPublished() const;
+    const std::vector<Question>& getQuestions() const;
 };

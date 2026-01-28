@@ -1,25 +1,18 @@
 #pragma once
-#include "Answer.h"
+#include <string>
 #include <vector>
-#include <String>
-#include <iostream>
+#include "Answer.h"
+
 using namespace std;
-
-class Question
-{
+class Question {
 private:
-	int questionID;
-	string text;
-	vector<Answer> answers;
-
-	int findAnswerIndex(int answerID) const;
+    string content;
+    vector<Answer> answers;
 
 public:
-	Question(int id, string t);
-	int getQuestionID() const;
-	string getText() const;
-	void addAnswer(const Answer& a);
-	void markAnswerCorrect(int answerID, bool isCorrect);
-	const vector<Answer>& getAnswers() const;
-	void display() const;
+    Question(const string& content = "");
+
+    void addAnswer(const Answer& ans);
+    string getContent() const;
+    const vector<Answer>& getAnswers() const;
 };

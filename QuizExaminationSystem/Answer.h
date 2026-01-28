@@ -1,20 +1,14 @@
 #pragma once
-#include <String>
-#include <iostream>
+#include <string>
 using namespace std;
-
-class Answer
-{
+class Answer {
 private:
-	int answerID;
-	string text;
-	bool isCorrect;
+    string content;
+    bool isCorrect;
 
 public:
-	Answer(int id, string t, bool correct = false);
-	int getAnswerID() const;
-	string getText() const;
-	bool getIsCorrect() const;
-	void setIsCorrect(bool correct);
-	void display() const;
+    Answer(const string& content = "", bool correct = false);
+
+    string getContent() const;
+    bool getIsCorrect() const;
 };
